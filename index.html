@@ -1,29 +1,290 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>黄婷婷我爱你</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="黄婷婷.我爱你">
+	<meta name="keywords" content="黄婷婷,我爱你">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="main.css">
 	<style type="text/css">
-	body {font-family: 'Microsoft Yahei';text-align: center;}
-	.green {color: #7AFF00;
-    text-shadow: 1px 1px 1px black;}
+body,
+div,
+p {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+body {
+	width: 100%;
+	*cursor: default;
+	overflow: hidden;
+	font: 16px/1.5 "Microsoft YaHei",Helvetica,STHeiti STXihei,Microsoft JhengHei,Arial;
+}
+#pageContain {
+	overflow: hidden;
+}
+.page {
+	display: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.contain {
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: relative;
+	z-index: 0;
+}
+.current .contain,.slide .contain {
+	display: block;
+}
+.current {
+	display: block;
+	z-index: 1;
+}
+.slide {
+	display: block;
+	z-index: 2;
+}
+.swipe {
+	display: block;
+	z-index: 3;
+	transition-duration: 0ms !important;
+	-webkit-transition-duration: 0ms !important;
+}
+.page1 {
+	background-color: #37c1e3;
+	background-image: url(1.jpg);
+}
+.page2 {
+	background-color: #009922;
+	background-image: url(2.jpg);
+}
+.page3 {
+	background-color: #992211;
+	background-image: url(3.jpg);
+}
+#navBar {
+	z-index: 3;
+	position: absolute;
+	top: 45%;
+	right: 3%;
+}
+#navBar .active {
+	background: #ccc;
+}
+#navBar li {
+	cursor: pointer;
+	margin-bottom: 10px;
+	transition: all .7s ease;
+	border-radius: 50%;
+	line-height: 40px;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	display: block;
+}
+
+.u-arrow {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    z-index: 150;
+    width: 80px;
+    height: 80px;
+    margin-left: -39px;
+}
+.u-arrow p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -14px 0 0 -25px;
+    width: 50px;
+    height: 28px;
+    -webkit-animation: start 1.2s infinite ease-in-out;
+    -moz-animation: start 1.2s infinite ease-in-out;
+    animation: start 1.2s infinite ease-in-out;
+}
+.css_sprite01 {
+    background-image: url(arrow.png)!important;
+    background-repeat: no-repeat!important;
+}
+/*箭头指示引导*/
+@-webkit-keyframes start {
+	0%,30% {opacity: 0;-webkit-transform: translate(0,10px);}
+	80% {opacity: 1;-webkit-transform: translate(0,0);}
+	100% {opacity: 0;-webkit-transform: translate(0,-8px);}
+}
+@-moz-keyframes start {
+	0%,30% {opacity: 0;-moz-transform: translate(0,10px);}
+	80% {opacity: 1;-moz-transform: translate(0,0);}
+	100% {opacity: 0;-moz-transform: translate(0,-8px);}
+}
+@keyframes start {
+	0%,30% {opacity: 0;transform: translate(0,10px);}
+	80% {opacity: 1;transform: translate(0,0);}
+	100% {opacity: 0;transform: translate(0,-8px);}
+}
+.green {
+    color: #9DEF00;
+    /* text-shadow: 1px 1px 1px black; */
+    font-size: 2em;
+}
     .red{color: red;}
+.yellow{color:yellow;margin: 0 5px;}
+    a {
+    color: #259BFF;
+}
+
+.titleEng3 {
+    -webkit-animation: dragBottom .7s ease-in-out both;
+    -moz-animation: dragBottom .7s ease-in-out both;
+    -ms-animation: dragBottom .7s ease-in-out both;
+    animation: dragBottom .7s ease-in-out both;
+    -webkit-animation-delay: 1.8s;
+    -moz-animation-delay: 1.8s;
+    -ms-animation-delay: 1.8s;
+    animation-delay: 1.8s;
+    font-size: 40px;
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    bottom: 33%;
+    left: 5%;
+    width: 90%;
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+    font-weight: normal;
+    color: #FD16FF;
+}
+@media screen and (max-width: 680px){
+	.titleEng3 {
+	    font-size: 20px;
+	    letter-spacing: 2px;
+	}
+}
+.xuan{
+
+color: #FF3F12;
+    display: block;
+    margin-left: 200px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px white;
+}
+.page4 .title {
+    line-height: 1.7;
+    font-size: 32px;
+}
+
+@media screen and (max-width: 680px){
+	.page4 .title{
+	    line-height: 1.5;
+    font-size: 16px;
+	}
+}
+
+.page4 .title p {
+    margin: 10px 0px;
+}
+.page4 .titleEng3{bottom: 20%;}
+a:hover {
+    text-decoration: underline;
+    color: #FF6E08;
+}
 	</style>
 </head>
-<body>
-	
-	<h1>欢迎访问<a href="http://黄婷婷.我爱你">http://黄婷婷.我爱你</a></h1>
-	<h1>全世界任意一台电脑打开浏览器输入“黄婷婷.我爱你”即可以看到本页面！！！</h1>
-	<h2>你是否也想要一个这样的域名？</h2>
-	<h2>你想不想向全世界宣告你对<span style="color: #EF00FF; margin: 0 5px;">黄婷婷</span>的爱？</h2>
-	<h2>你敢不敢说自己是黄婷婷的忠实粉丝？</h2>
-	<h1>现在，“<span class="red">黄婷婷.我爱你</span>”域名<span class="green">低价转让</span>，动动手指这个域名就是你的了！</h1>
-	<h1>购买本域名请点击这里前往<a href="https://wanwang.aliyun.com/nametrade/detail/online.html?spm=5176.8076989.339865.58.7rSY1T&domainName=%E9%BB%84%E5%A9%B7%E5%A9%B7.%E6%88%91%E7%88%B1%E4%BD%A0&orgType=undefined&productType=2&token=check-web-hichina-com:s3tvhwvhbe38q9n16audxgtkpbn0d4hf">淘宝域名市场</a>购买</h1>
-	<h2 style="color: #FF8100;">（基于淘宝域名市场，安全可信任，付完钱域名自动转到你名下，无需卖方确认！）</h2>
-	<h2>什么？嫌贵？要知道<span class="red">域名这个东西是全世界唯一</span>的，错过这个以后想花钱都买不到了！！！</h2>
-	<h2>什么？自己是电脑小白？不懂域名是什么？不知如何操作？别急，这里有详细的<a href="#">傻瓜式操作教程</a>！</h2>
-	<h2>所以管他那么多，先抢购下来以后再慢慢研究！</h2>
-	<h2>当你还在<span class="red">犹豫</span>的时候别人已经开始下手了！记住！<span class="red">手慢则无</span>！</h2>
+<!--[if lte IE 7]>      
+<body scroll="no"> 
+<![endif]-->
+<!--[if gt IE 7]><!--> 
+<body> 
+<!--<![endif]-->
+	<div id="pageContain">
+		
+		<div class="page page1 current">
+			<div class="contain">
+				<h3 class="title">欢迎访问<a href="http://黄婷婷.我爱你">http://黄婷婷.我爱你</a></h3>
+				<h4 class="titleEng">全世界任意一台电脑打开浏览器输入<span class="yellow">黄婷婷.我爱你</span>即可以看到本页面哦！！！</h4>
+				<h3 class="titleEng2">向上滑动或滚动鼠标继续下一页</h3>
+			</div>
+		</div>
+
+		<div class="page page2">
+			<div class="contain">
+				<h3 class="title">你是否也想要一个这样的域名？</h3>
+				<h3 class="titleEng">你想不想像下面这样向全世界宣告你对<span style="color: yellow; margin: 0 5px;">黄婷婷</span>的爱？</h3>
+				<h3 class="titleEng2" style="color:yellow">黄婷婷，我爱你！<span class="xuan">--张三宣</span></h3>
+			</div>
+		</div>
+
+		<div class="page page3">
+			<div class="contain">
+				<h3 class="title">现在，“<span class="yellow">黄婷婷.我爱你</span>”域名<br><span class="green">低价转让</span></h3>
+				<h4 class="titleEng3">动动手指这个域名就是你的了！</h4>
+			</div>
+		</div>
+
+		<div class="page page4">
+			<div class="contain">
+				<h3 class="title">
+					<p>购买本域名请点击这里：<a href="https://wanwang.aliyun.com/nametrade/detail/online.html?domainName=%E9%BB%84%E5%A9%B7%E5%A9%B7.%E6%88%91%E7%88%B1%E4%BD%A0">淘宝域名市场</a>
+					<p style="color: #FF8100;">（基于淘宝域名市场，安全可信任，付完钱域名自动转到你名下，无需卖方确认！）</p>
+					<p>什么？嫌贵？要知道<span class="red">域名这个东西是全世界唯一</span>的，错过这个以后想花钱都买不到了！！！</p>
+					<p>什么？自己是电脑小白？不懂域名是什么？不知如何操作？别急，这里有详细的<a href="http://bucuo.site/help/domain-sell.html">傻瓜式操作教程</a>！</p>
+					<p>所以管他那么多，先抢购下来以后再慢慢研究！</p>
+					<p>当你还在<span class="red">犹豫</span>的时候别人已经开始下手了！</h2>
+				</h3>
+				<h4 class="titleEng3">记住！<span class="red">手慢则无</span>！</h4>
+			</div>
+		</div>
+	</div>
+	<ul id="navBar">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<section class="u-arrow">
+		<p class="css_sprite01"></p>
+	</section>
+
+	<script type="text/javascript" src="js/fullPage.min.js"></script>
+	<script type="text/javascript">
+		
+	var runPage = new FullPage(
+	{
+		id : 'pageContain',                            // id of contain
+		slideTime : 800,                               // time of slide
+		continuous : true,                             // create an infinite feel with no endpoints
+		effect :
+		{
+			transform :
+			{
+				translate : 'Y',					   // 'X'|'Y'|'XY'|'none'
+				scale : [.1, 1],					   // [scalefrom, scaleto]
+				rotate : [270, 0]					   // [rotatefrom, rotateto]
+			},
+			opacity : [0, 1]                           // [opacityfrom, opacityto]
+		},
+		mode : 'wheel,touch,nav:navBar',               // mode of fullpage
+		easing : 'ease',                                // easing('ease','ease-in','ease-in-out' or use cubic-bezier like [.33, 1.81, 1, 1] )
+		callback : function(index, thisPage)
+		{
+			
+		}
+	});
+
+	</script>
 </body>
 </html>
